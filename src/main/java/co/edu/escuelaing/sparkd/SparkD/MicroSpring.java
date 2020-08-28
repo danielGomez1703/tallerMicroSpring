@@ -27,7 +27,8 @@ public class MicroSpring {
             if (m.isAnnotationPresent(RequestMapping.class)) {
                 System.out.println("Si está anotado con @Reques tMapping");
                 try {
-                    beans.put("Get the value of the parameter", m);
+                    RequestMapping rm = m.getAnnotation(RequestMapping.class);
+                    beans.put(rm.value(), m);
                     mapped++;
                 } catch (Throwable ex) {
                     System.out.printf("Test %s failed: %s %n", m, ex.getCause());
@@ -38,6 +39,7 @@ public class MicroSpring {
 
     public String invoke(String path) {
         try {
+            System.out.println(path);
             return beans.get(path).invoke(null).toString();
         } catch (IllegalAccessException ex) {
             Logger.getLogger(MicroSpring.class.getName()).log(Level.SEVERE, null, ex);

@@ -60,8 +60,6 @@ public class HttpServer {
                         System.err.println("Accept failed.");
                         System.exit(1);
                     }
-
-
                     processRequest(clientSocket);
 
 
@@ -169,6 +167,7 @@ public class HttpServer {
             String header = "HTTP/1.1 200 OK\r\n"
                 + "Content-Type: text/html\r\n"
                 + "\r\n";
+            System.out.println("appuri " + appuri);
             String methodresponse = iocServer.invoke(appuri);
             out.println(header + methodresponse);
     }

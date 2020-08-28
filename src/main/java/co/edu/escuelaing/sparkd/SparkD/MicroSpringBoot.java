@@ -5,10 +5,6 @@
  */
 package co.edu.escuelaing.sparkd.SparkD;
 
-/**
- *
- * @author Jairo Gomez
- */
 import co.edu.escuelaing.sparkd.httpserver.HttpServer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,7 +13,7 @@ public class MicroSpringBoot {
 
 
     public static void main(String[] args) {     
-        args[0]="co.edu.escuelaing.sparkd.HelloController";
+        args =new String []{"co.edu.escuelaing.sparkd.SparkD.controllers.HelloController"};
         try {
             MicroSpring iocServer = new MicroSpring();
             iocServer.start(args);
